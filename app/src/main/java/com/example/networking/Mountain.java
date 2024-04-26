@@ -1,6 +1,10 @@
 package com.example.networking;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Mountain {
+
+    @SerializedName("name")
     private String name;
 
     public Mountain(String name){
@@ -15,7 +19,12 @@ public class Mountain {
         this.name=name;
     }
 
+    @Override
     public String toString(){
+        return name;
+    }
+
+    public String getTitle(){
         return name;
     }
 }
