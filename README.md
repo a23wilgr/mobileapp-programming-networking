@@ -1,39 +1,39 @@
 
 # Rapport
 
-**Skriv din rapport här!**
+Den till layout.xml har skapats med en recyclerView, så att text- och recyclerView finns i två olika layouts. En class med mountain har skapats som ska ta fram namn på berg genom 
+en URL som finns i MainActivity. En RecyclerViewAdapter skapades för att kunna koppla ihop Mountain-klassen med RecyclerViewn. Interet-acess har enableats så att datan kan hämtas från URLen.
+I onPostExecute har gson lagts till för att json-datan ska kuna skrivas ut och synas, så att bergens namn syns på skärmen.
 
-_Du kan ta bort all text som finns sedan tidigare_.
-
-## Följande grundsyn gäller dugga-svar:
-
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
-
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
-
+I första kodsnutten kan man se hur mountain-classen har gjorts, och att endast namn från bergen ska synas. Med hjälp av gson kommer json-datan kunna synas på skärmen.
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
+import com.google.gson.annotations.SerializedName;
+public class Mountain {
+    @SerializedName("name")
+    private String name;
+    public Mountain(String name){
+        this.name=name;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
+    @Override
+    public String toString(){
+        return name;
+    }
+    public String getTitle(){
+        return name;
     }
 }
+
 ```
 
 Bilder läggs i samma mapp som markdown-filen.
 
-![](android.png)
+![](ScreenBerg.png)
 
 Läs gärna:
 
